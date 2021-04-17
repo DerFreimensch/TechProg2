@@ -36,6 +36,9 @@ void TestStack(int l) {
     std::cout << (First < Second) << std::endl;
     ShowQueue(*First(l));
     ShowQueue(*Second(l));
+    Stack Third(First);
+    ShowQueue(First);
+    ShowQueue(Third);
 
 }
 void Menu() {

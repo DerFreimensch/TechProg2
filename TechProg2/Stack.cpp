@@ -7,7 +7,20 @@ Stack::~Stack() {
     SetLast(nullptr);
 }
 
-bool Stack::operator==(Stack St2) {
+Stack::Stack(const Stack& St2) {
+    this->SetLength(St2.length);
+    this->Recursion(St2.Last);
+    this->AddNode(St2.Last->Number);
+}
+void Stack::Recursion(Node* ptr) {
+    if (ptr->NextPtr != nullptr) {
+        ptr = ptr->NextPtr;
+        Recursion(ptr);
+        this->AddNode(ptr->Number);
+    }
+    
+}
+bool Stack::operator==(Stack &St2) {
     Node* Now1 = this->GetLast();
     Node* Now2 = St2.GetLast();
     if (this->GetLength() == St2.GetLength()) {
@@ -22,10 +35,10 @@ bool Stack::operator==(Stack St2) {
     }
     return false;
 }
-bool Stack::operator !=(Stack St2) {
+bool Stack::operator !=(Stack &St2) {
     return !(*this == St2);
 }
-bool Stack::operator<(Stack St2) {
+bool Stack::operator<(Stack &St2) {
     Node* Now1 = this->GetLast();
     Node* Now2 = St2.GetLast();
     if (this->GetLength() == St2.GetLength()) {
@@ -40,10 +53,10 @@ bool Stack::operator<(Stack St2) {
     }
     return false;
 }
-bool Stack::operator >=(Stack St2) {
+bool Stack::operator >=(Stack &St2) {
     return !(*this < St2);
 }
-bool Stack::operator>(Stack St2) {
+bool Stack::operator>(Stack &St2) {
     Node* Now1 = this->GetLast();
     Node* Now2 = St2.GetLast();
     if (this->GetLength() == St2.GetLength()) {
@@ -58,7 +71,7 @@ bool Stack::operator>(Stack St2) {
     }
     return false;
 }
-bool Stack::operator <=(Stack St2) {
+bool Stack::operator <=(Stack &St2) {
     return !(*this < St2);
 }
 Stack* Stack::operator()(int L) {
