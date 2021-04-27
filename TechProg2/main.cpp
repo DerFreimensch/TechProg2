@@ -33,14 +33,14 @@ void TestStack(int l) {
     std::cout << " > : " << (First > Second) << std::endl;
     std::cout << " >= : " << (First >= Second) << std::endl;
     std::cout << " < : " << (First < Second) << std::endl;
-    std::cout << "First Queue: ";
+    std::cout << "First UnderStack: ";
     ShowQueue(*First(l));
-    std::cout << "Second Queue: ";
+    std::cout << "Second UnderStack: ";
     ShowQueue(*Second(l));
     Stack Third(First);
-    std::cout << "First Queue: ";
+    std::cout << "First Stack: ";
     ShowQueue(First);
-    std::cout << "Third (Copy) Queue: ";
+    std::cout << "Third (Copy of First) Queue: ";
     ShowQueue(Third);
 
 }
