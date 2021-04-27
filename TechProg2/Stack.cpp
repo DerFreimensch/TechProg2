@@ -72,7 +72,7 @@ bool Stack::operator>(Stack &St2) {
     return false;
 }
 bool Stack::operator <=(Stack &St2) {
-    return !(*this < St2);
+    return !(*this > St2);
 }
 Stack* Stack::operator()(int L) {
     Node* Now = GetLast();

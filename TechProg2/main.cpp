@@ -13,8 +13,7 @@ int main() {
 void Adding(Stack& A) {
     int Number;
     for (int i = 0; i < A.GetLength(); i++) {
-        std::cout << "Print element number " << (i + 1) << std::endl;
-        std::cin >> Number;
+        Number = rand();
         A.AddNode(Number);
     }
 }
@@ -28,16 +27,20 @@ void TestStack(int l) {
     std::cin >> NumberOfNodes;
     Stack Second(NumberOfNodes);
     Adding(Second);
-    std::cout << (First == Second) << std::endl;
-    std::cout << (First != Second) << std::endl;
-    std::cout << (First <= Second) << std::endl;
-    std::cout << (First > Second) << std::endl;
-    std::cout << (First >= Second) << std::endl;
-    std::cout << (First < Second) << std::endl;
+    std::cout <<" == : "<< (First == Second) << std::endl;
+    std::cout << " != : " << (First != Second) << std::endl;
+    std::cout << " <= : " << (First <= Second) << std::endl;
+    std::cout << " > : " << (First > Second) << std::endl;
+    std::cout << " >= : " << (First >= Second) << std::endl;
+    std::cout << " < : " << (First < Second) << std::endl;
+    std::cout << "First Queue: ";
     ShowQueue(*First(l));
+    std::cout << "Second Queue: ";
     ShowQueue(*Second(l));
     Stack Third(First);
+    std::cout << "First Queue: ";
     ShowQueue(First);
+    std::cout << "Third (Copy) Queue: ";
     ShowQueue(Third);
 
 }
@@ -46,7 +49,6 @@ void Menu() {
     std::cout << "Menu" << std::endl;
     std::cout << "1) Testing Stack" << std::endl;
     std::cout << "2) Testing Coordinates" << std::endl;
-    std::cout << "3) Back to make Stacks" << std::endl;
     std::cout << "0) Exit" << std::endl;
     std::cin >> choose;
     if (choose != 1 && choose != 2 && choose != 0) {
@@ -76,14 +78,14 @@ void TestCoord() {
     std::cin >> Y;
     std::cin >> Z;
     Coordinates* A = new Coordinates(X, Y, Z);
-    std::cout << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
+    std::cout << "Default: " << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
     (*A)++;
-    std::cout << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
+    std::cout << "Operator ++ (Post): " << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
     (*A)--;
+    std::cout << "Operator -- (Post): " << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
+    std::cout << "Operator ++ (Pref): " <<++(*A) << std::endl;
     std::cout << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
-    std::cout << ++(*A) << std::endl;
-    std::cout << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
-    std::cout << --(*A) << std::endl;
+    std::cout << "Operator -- (Pref): " << --(*A) << std::endl;
     std::cout << "[" << A->GetX() << ";" << A->GetY() << ";" << A->GetZ() << "]" << std::endl;
 }
 
